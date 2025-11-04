@@ -46,7 +46,7 @@ describe("Album Catalog - Interactions", () => {
     });
 
     it("displays all three sections in search results", () => {
-        const searchTerm = "a"; // Using a common letter to ensure some results
+        const searchTerm = "a";
 
         cy.get('[data-cy="search-input"]').type(searchTerm);
         cy.contains("Search").click();
