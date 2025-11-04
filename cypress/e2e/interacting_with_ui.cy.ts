@@ -44,7 +44,7 @@ describe("Album Catalog - Interactions", () => {
         cy.get('[data-cy="authors-section-title"]').should("be.visible");
     });
 
-    it("empty search gives no such query error", () => {
+    it("empty search gives no search error", () => {
         cy.get('[data-cy="search-button"]').click();
 
         cy.url().should("include", "/search");
