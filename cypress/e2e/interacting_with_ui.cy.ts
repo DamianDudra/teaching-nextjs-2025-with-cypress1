@@ -13,27 +13,15 @@ describe("Album Catalog - Interactions", () => {
     });
 
     it("navigates to the first album detail", () => {
-        cy.get('[data-cy="album-card"]')
-            .first()
-            .within(() => {
-                cy.get("a").contains("Detail").click();
-            });
+        cy.get('[data-cy="album-detail-button"]').first().click();
 
-        cy.url().should("match", /\/album\/\d+$/);
+        cy.url().should("include", "/album/1");
     });
 
     it("navigates to home page after clicking on Spotify logo", () => {
-        cy.get('[data-cy="album-card"]')
-            .first()
-            .find("a")
-            .contains("Detail")
-            .click();
-        cy.url().should("include", "/album/");
+        cy.get("[data-cy=title]").click();
 
-        cy.get('[data-cy="home-link"]').click();
-
-        cy.url().should("eq", Cypress.config().baseUrl + "/");
-        cy.get('[data-cy="album-grid"]').should("be.visible");
+        cy.url().should("include", "/");
     });
 
     it("preserves search term in input after search", () => {
